@@ -1,3 +1,6 @@
+# Technologies Used
+Typescript, React, Redux-Toolkit, Styled Components, Font-Awesome, Axios.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
