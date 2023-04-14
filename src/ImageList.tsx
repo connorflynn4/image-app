@@ -121,9 +121,9 @@ const ImageInfoTable = styled.table`
     padding-bottom: 10px;
     padding-left: 0px;
     font-size: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
-
-  
 
   th, td:last-child td, td {
     border-bottom: 1px solid lightgrey;
@@ -135,28 +135,27 @@ const ImageInfoTable = styled.table`
     font-weight: 700;
   }
 
-  
+  th {
+    text-align: left;
+    color: grey;
+    font-weight: 700;
+  }
 
-    th {
+  td {
+    text-align: right;
+    color: #black;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      display: block;
+      width: 100%;
       text-align: left;
-      color: grey;
-      font-weight: 700;
     }
-
-    td {
-      text-align: right;
-      color: #black;
-      font-weight: 700;
-    }
-
-    @media (max-width: 768px) {
-      th, td {
-        display: block;
-        width: 100%;
-        text-align: left;
-      }
   }
 `;
+
 
 const Header = styled.h3`
   font-size: 22px;
@@ -170,6 +169,11 @@ const ImageNameContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
 `;
 
 
@@ -241,7 +245,7 @@ const ImageList: React.FC<ImageListProps> = ({ activeTab }) => {
     <ImageNameContainer>
     <p>
   <FileNameContainer>
-    <strong>{selectedImage.filename}</strong>
+  <strong style={{fontSize: '13px'}}>{selectedImage.filename}</strong>
       </FileNameContainer>
 </p>
 <p><FavoriteButton
@@ -256,7 +260,7 @@ const ImageList: React.FC<ImageListProps> = ({ activeTab }) => {
       />
     </FavoriteButton></p>
     </ImageNameContainer>
-    <p style={{ marginTop: "-10px" }}>{formatSizeInMB(selectedImage.sizeInBytes)}</p>
+    <p style={{ marginTop: "-10px", fontSize: "13px"}}>{formatSizeInMB(selectedImage.sizeInBytes)}</p>
 
     <Header>Information</Header>
 <ImageInfoTable>
